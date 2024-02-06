@@ -4,22 +4,84 @@
     <meta charset="UTF-8">
     <title>Create New Product</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERd`knLPMO" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 0px; /* Add some space for the navbar */
+            color: #000; /* Set text color to black */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+            background-color: #ffe4e3; /* Light red background */
+        }
+
+        .container-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        form {
+            width: 500px;
+            min-height: 200px;
+            height: auto;
+            border-radius: 5px;
+            margin: 2% auto;
+            box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+            padding: 5%;
+            background-color: #E3FDF5;
+        }
+
+        .form-input {
+            margin-bottom: 25px; /* Add space between input fields */
+            padding: 0 10px; /* Add padding to inputs */
+        }
+
+        /* inputs form  */
+        input[class="form-input"]{
+            width: 240px;
+            height: 50px;
+
+            margin-top: 2%;
+            padding: 15px;
+
+            font-size: 16px;
+            font-family: 'Abel', sans-serif;
+            color: #5E6472;
+
+            outline: none;
+            border: none;
+
+            border-radius: 0px 5px 5px 0px;
+
+            margin-top: 10px; /* Add space between input fields */
+        }
+
+        /* Center the submit button */
+        button[type="submit"] {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
+<div class="container-body">
     <h3>Create New Product</h3>
 
-    <form th:action="@{/product/create}" th:object="${product}" method="post">
-        <div class="form-group">
+    <form class="form" th:action="@{/product/create}" th:object="${product}" method="post">
+        <div class="form-input">
             <label for="nameInput">Name</label>
-            <input th:field="*{productName}" type="text" class="form-control mb-4 col-4" id="nameInput" placeholder="Enter product' name">
+            <input th:field="*{productName}" type="text" class="form-control col-12" id="nameInput" placeholder="Enter product' name">
         </div>
-        <div class="form-group">
+        <div class="form-input">
             <label for="quantityInput">Quantity</label>
-            <input th:field="*{productQuantity}" type="text" class="form-control mb-4 col-4" id="quantityInput" placeholder="Enter product' name">
+            <input th:field="*{productQuantity}" type="text" class="form-control col-12" id="quantityInput" placeholder="Enter product' name">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="submitCreate" type="submit" class="btn btn-info">Submit</button>
     </form>
 </div>
 

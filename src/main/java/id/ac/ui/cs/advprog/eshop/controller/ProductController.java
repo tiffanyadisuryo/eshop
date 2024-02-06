@@ -54,4 +54,9 @@ public class ProductController {
         service.delete(productId);
         return "redirect:../list";
     }
+
+    @GetMapping("/")
+    public String homePage(Model model) {
+        return "home";
+    }
 }
