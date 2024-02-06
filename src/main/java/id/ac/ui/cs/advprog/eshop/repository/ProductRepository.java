@@ -28,8 +28,19 @@ public class ProductRepository{
         for(Product product : productData){
             if (idProduct.equals(product.getProductId())){
                 productData.set(productData.indexOf(product), newProduct);
+                break;
             }
         }
         return newProduct;
+    }
+
+    public Product delete(String idProduct){
+        for(Product product : productData){
+            if (idProduct.equals(product.getProductId())){
+                productData.remove(product);
+                return product;
+            }
+        }
+        return null;
     }
 }
