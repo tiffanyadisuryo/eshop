@@ -93,28 +93,33 @@ public class ProductRepositoryTest {
         product1.setProductQuantity(100);
         productRepository.create(product1);
 
+        productRepository.delete(product1.getProductId());
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertFalse(productIterator.hasNext());
+    }
+
+    @Test
+    void testDeleteIfMoreThanOneProduct() {
+        Product product1 = new Product();
+        product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product1.setProductName("Sampo Cap Bambang");
+        product1.setProductQuantity(100);
+        productRepository.create(product1);
+
         Product product2 = new Product();
-        product2.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product2.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd7");
         product2.setProductName("Sambal Cap Bambambam");
         product2.setProductQuantity(200);
         productRepository.create(product2);
 
+        productRepository.delete(product1.getProductId());
+
         Iterator<Product> productIterator = productRepository.findAll();
-        assertTrue(productIterator.hasNext());
-        Product savedProduct = productIterator.next();
-        assertEquals(savedProduct.getProductId(), product1.getProductId());
-        assertEquals(savedProduct.getProductName(), product1.getProductName());
-        assertEquals(savedProduct.getProductQuantity(), product1.getProductQuantity());
-
-        productRepository.delete(savedProduct.getProductId());
-
-        Iterator<Product> newProductIterator = productRepository.findAll();
-        Product newSavedProduct = newProductIterator.next();
-        assertEquals(newSavedProduct.getProductId(), product1.getProductId());
-        assertNotEquals(newSavedProduct.getProductName(), product1.getProductName());
-        assertEquals(newSavedProduct.getProductName(), product2.getProductName());
-        assertNotEquals(newSavedProduct.getProductQuantity(), product1.getProductQuantity());
-        assertEquals(newSavedProduct.getProductQuantity(), product2.getProductQuantity());
+        Product RemainingProduct = productIterator.next();
+        assertEquals(RemainingProduct.getProductId(), product2.getProductId());
+        assertEquals(RemainingProduct.getProductName(), product2.getProductName());
+        assertEquals(RemainingProduct.getProductQuantity(), product2.getProductQuantity());
     }
 
     @Test
