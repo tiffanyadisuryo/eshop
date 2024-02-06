@@ -12,10 +12,15 @@ public class ProductRepository{
     private List<Product> productData = new ArrayList<>();
     private int idCounter = 1; // id starting point
 
-    public Product create(Product product) {
-        productData.add(product);
-        product.setProductId(String.valueOf(idCounter));
+    public Product create(Product product) throws IllegalArgumentException{
+        if (product.getProductId() == null){
+            product.setProductId(String.valueOf(idCounter));
+        }
         idCounter++;
+        if (product.getProductQuantity() < 0){
+            throw new IllegalArgumentException("Input must be a non-negative integer.");
+        }
+        productData.add(product);
         return product;
     }
 
