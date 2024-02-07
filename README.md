@@ -1,16 +1,15 @@
 ## Reflection 1
-<br>
-* Melakukan Clean Code <br>
+- Melakukan Clean Code <br>
     - Meaningful names : contohnya homePage() yang merupakan function untuk menampilkan Home.html.
     - Function : nama function-nya deskriptif, tidak terdapat side effects.
     - Comments : terdapat beberapa comments yang memperjelas fungsi code terutama di file html dengan css.
-    - Error handling : tidak ada return null, terdapat try-catch statement pada ProductRepository.java. 
-<br>
-* Melakukan Secure Coding <br>
+    - Error handling : tidak ada return null, terdapat try-catch statement pada ProductRepository.java.
+      
+- Melakukan Secure Coding <br>
     - mengidentifikasi field input.
     - melakukan validasi data.
-<br>
-* Hal yang dapat di improve <br>
+
+- Hal yang dapat di improve <br>
     - melakukan validasi data yang lebih mendetail.
     - untuk id saya memberikan id sebagai angka terurut jika tidak didefinisikan di awal sehingga tidak null isinya.
     - di kemudian hari dapat melakukan otorisasi dan autentikasi.
