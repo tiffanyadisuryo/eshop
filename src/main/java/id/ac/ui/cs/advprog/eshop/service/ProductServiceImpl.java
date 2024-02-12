@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product delete(String idProduct){
+    public String delete(String idProduct){
         return productRepository.delete(idProduct);
     }
 }
