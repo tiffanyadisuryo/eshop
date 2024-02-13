@@ -94,6 +94,24 @@ public class ProductRepositoryTest {
     }
 
     @Test
+    void testEditFail() {
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductName("Sampo Cap Bambang");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        Product editedProduct = new Product();
+        editedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd7"); // beda id
+        editedProduct.setProductName("Sambal Cap Bambambam");
+        editedProduct.setProductQuantity(200);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            productRepository.edit(editedProduct);
+        });
+    }
+
+    @Test
     void testDelete() {
         Product product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
@@ -105,6 +123,19 @@ public class ProductRepositoryTest {
 
         Iterator<Product> productIterator = productRepository.findAll();
         assertFalse(productIterator.hasNext());
+    }
+
+    @Test
+    void testDeleteFail() {
+        Product product1 = new Product();
+        product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product1.setProductName("Sampo Cap Bambang");
+        product1.setProductQuantity(100);
+        productRepository.create(product1);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            productRepository.delete("eb558e9f-1c39-460e-8860-71af6af63bd7"); //beda id
+        });
     }
 
     @Test
