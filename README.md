@@ -1,3 +1,4 @@
+# Tutorial 1
 ## Reflection 1
 - Melakukan Clean Code <br>
     - Meaningful names : contohnya homePage() yang merupakan function untuk menampilkan Home.html.
@@ -18,3 +19,10 @@
 ## Reflection 2
 1. Untuk unit test, saya membuat 3 positif dan 1 negatif unit test baru yang menurut saya cukup baik untuk memverifikasi program, karena cukup cover 2 fitur tambahan yang ada. Untuk memastikan unit test tersebut cukup untuk memverifikasi program adalah dengan melihat setiap function di setiap fitur dan mencari kemungkinan-kemungkinan yang ada. Dengan itu, code coverage semakin naik dan dapat dipastikan setiap aspek kode telah diuji kebenarannya. Meskipun begitu, 100% code coverage tidak berarti kode tersebut terbebas dari bugs atau error. Karena itu semua tetao tergantung dari kualitas test itu sendiri. Test dapat saja telah meng-cover sebuah function, tetapi belum tentu semua kemungkinan dari function itu telah diuji.
 2. Menurut saya, cleanliness dari code tersebut akan berkurang karena terdapat perulangan prosedur dan juga instance variables. Selain itu, harus membuat function baru untuk menghitung banyak product dan lain-lainnya. Tentunya, harus ada tambahan pada file html agar dapat dideteksi oleh Functional Test tersebut. Ditambah lagi, belum tentu banyak product dapat merepresentasikan ketepatan output. Itu dikarenakan kemungkinan adanya bug yang menghasilkan jumlah yang tepat namun id, name, atau quantity belum tepat di dalam list. Ditambah lagi, lebih efektif untuk memeriksa id, name, quantity dari produk di list karena telah ada function getProductId() dan kawan-kawan untuk melakukan hal tersebut. 
+
+# Tutorial 2
+## Reflection 1
+1. List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
+
+2. Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment? Explain the reasons (minimum 3 sentences)!
+
