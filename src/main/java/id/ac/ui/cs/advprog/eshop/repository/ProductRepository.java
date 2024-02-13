@@ -39,13 +39,13 @@ public class ProductRepository{
         return newProduct;
     }
 
-    public Product delete(String idProduct){
+    public String delete(String idProduct) {
         for(Product product : productData){
             if (idProduct.equals(product.getProductId())){
                 productData.remove(product);
-                return product;
+                break;
             }
         }
-        return null;
+        return idProduct;
     }
 }
