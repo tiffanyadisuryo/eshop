@@ -24,5 +24,5 @@
 ## Reflection 1
 1. List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
 
-2. Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment? Explain the reasons (minimum 3 sentences)!
+2. Menurut saya, sudah lumayan bisa dibilang continuous integration dan continuous deployment. Definisi dari continuous integration adalah praktik pengembangan perangkat lunak di mana perubahan & pembaruan berkelanjutan dalam basis kode diintegrasikan dan diverifikasi oleh skrip pembuatan otomatis menggunakan berbagai alat. Dalam workflow CI, kode yang diperbarui saat push akan secara otomatis diperiksa dan diverifikasi. Sementara untuk continuous deployment yang berdefinisi praktik pengembangan perangkat lunak di mana perubahan & pembaruan berkelanjutan dalam basis kode akan melalui proses deployment pada sebuah folder aplikasi secara otomatis. Dengan menggunakan Koyeb, setiap pembaruan push, akan langsung deploy dan menampilkan perubahan pada web aplikasi. Dengan itu, saya bisa bilang saya sudah mengimplementasikan kedua hal tersebut.
 
