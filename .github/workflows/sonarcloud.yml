@@ -17,4 +17,4 @@ jobs:
 
           args:
             -Dsonar.projectKey=tiffanyadisuryo_eshop
-            -Dsonar.organization=tiffanyadisuryo
+            -Dsonar.organization=Tiffany Lindy Adisuryo
