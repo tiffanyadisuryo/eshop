@@ -54,12 +54,20 @@ public class ProductRepositoryTest {
         product2.setProductQuantity(50);
         productRepository.create(product2);
 
+        Product product3 = new Product();
+        product3.setProductName("Sampo Cap Botak");
+        product3.setProductQuantity(20);
+        productRepository.create(product3);
+
         Iterator<Product> productIterator = productRepository.findAll();
         assertTrue(productIterator.hasNext());
         Product savedProduct = productIterator.next();
         assertEquals(product1.getProductId(), savedProduct.getProductId());
         savedProduct = productIterator.next();
         assertEquals(product2.getProductId(), savedProduct.getProductId());
+        assertTrue(productIterator.hasNext());
+        savedProduct = productIterator.next();
+        assertEquals("3" , savedProduct.getProductId());
         assertFalse(productIterator.hasNext());
     }
 
