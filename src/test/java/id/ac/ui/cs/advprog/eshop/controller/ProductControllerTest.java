@@ -20,6 +20,9 @@ import static org.mockito.Mockito.mock;
 class ProductControllerTest {
     @InjectMocks
     private ProductController controller;
+    @Mock
+    ProductServiceImpl service;
+
     Model model = mock(Model.class);
     Product product = new Product();
 
