@@ -21,8 +21,16 @@
 2. Menurut saya, cleanliness dari code tersebut akan berkurang karena terdapat perulangan prosedur dan juga instance variables. Selain itu, harus membuat function baru untuk menghitung banyak product dan lain-lainnya. Tentunya, harus ada tambahan pada file html agar dapat dideteksi oleh Functional Test tersebut. Ditambah lagi, belum tentu banyak product dapat merepresentasikan ketepatan output. Itu dikarenakan kemungkinan adanya bug yang menghasilkan jumlah yang tepat namun id, name, atau quantity belum tepat di dalam list. Ditambah lagi, lebih efektif untuk memeriksa id, name, quantity dari produk di list karena telah ada function getProductId() dan kawan-kawan untuk melakukan hal tersebut. 
 
 # Tutorial 2
+
+Link Home page : https://eshop-tiffanyadisuryo.koyeb.app/
+
+
+
 ## Reflection 1
 1. List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
+   - Terdapat beberapa import yang tidak diperlukan. Issue tersebut kemudian diatasi dengan cara di hapus.
+   - Terdapat beberapa line yang tidak terdeteksi bila terjadi kesalahan seperti contoh pada edit dan delete yang jika product yang dilakukan aksi tidak ditemukan, maka tidak terdeteksi. Solusinya menambah throws exception dan juga menambah test untuk memastikan hal tersebut.
+   - Terdapat code yang duplikat pada file html. Solusinya adalah menghapus salah satu code tersebut.
 
 2. Menurut saya, sudah lumayan bisa dibilang continuous integration dan continuous deployment. Definisi dari continuous integration adalah praktik pengembangan perangkat lunak di mana perubahan & pembaruan berkelanjutan dalam basis kode diintegrasikan dan diverifikasi oleh skrip pembuatan otomatis menggunakan berbagai alat. Dalam workflow CI, kode yang diperbarui saat push akan secara otomatis diperiksa dan diverifikasi. Sementara untuk continuous deployment yang berdefinisi praktik pengembangan perangkat lunak di mana perubahan & pembaruan berkelanjutan dalam basis kode akan melalui proses deployment pada sebuah folder aplikasi secara otomatis. Dengan menggunakan Koyeb, setiap pembaruan push, akan langsung deploy dan menampilkan perubahan pada web aplikasi. Dengan itu, saya bisa bilang saya sudah mengimplementasikan kedua hal tersebut.
 
