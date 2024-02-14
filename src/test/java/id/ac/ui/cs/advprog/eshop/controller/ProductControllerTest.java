@@ -13,17 +13,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.ui.Model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 @ExtendWith(MockitoExtension.class)
 class ProductControllerTest {
     @InjectMocks
     private ProductController controller;
-
-    @Mock
-    ProductServiceImpl service;
-
-
     Model model = mock(Model.class);
     Product product = new Product();
 
