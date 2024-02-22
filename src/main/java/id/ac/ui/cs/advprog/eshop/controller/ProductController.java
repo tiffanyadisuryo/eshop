@@ -1,7 +1,7 @@
 package id.ac.ui.cs.advprog.eshop.controller;
 
 import id.ac.ui.cs.advprog.eshop.model.Car;
-import id.ac.ui.cs.advprog.eshop.service.CarServiceImpl
+import id.ac.ui.cs.advprog.eshop.service.CarServiceImpl;
 
 import id.ac.ui.cs.advprog.eshop.model.Product;
 import id.ac.ui.cs.advprog.eshop.service.ProductService;
@@ -72,7 +72,7 @@ class CarController extends ProductController{
 
     @GetMapping("/createCar")
     public String createCarPage(Model model) {
-        Car car new Car();
+        Car car = new Car();
         model.addAttribute("car", car);
         return "createCar";
     }
@@ -92,7 +92,7 @@ class CarController extends ProductController{
 
     @GetMapping("/editCar/{carId}")
     public String editCarPage(@PathVariable String carId, Model model) {
-        Car car carservice.findById(carId);
+        Car car = carservice.findById(carId);
         model.addAttribute("car", car);
         return "editcar";
     }
