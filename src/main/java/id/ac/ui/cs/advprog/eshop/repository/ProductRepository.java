@@ -28,24 +28,23 @@ public class ProductRepository{
         return productData.iterator();
     }
 
-    public Product edit(Product newProduct) throws IllegalArgumentException{
-        String idProduct = newProduct.getProductId();
+    public Product findById(String idProduct) throws IllegalArgumentException{
         for(Product product : productData){
             if (idProduct.equals(product.getProductId())){
-                productData.set(productData.indexOf(product), newProduct);
-                return newProduct;
+                return product;
             }
         }
         throw new IllegalArgumentException();
     }
 
-    public String delete(String idProduct) throws IllegalArgumentException{
-        for(Product product : productData){
-            if (idProduct.equals(product.getProductId())){
-                productData.remove(product);
-                return idProduct;
-            }
-        }
-        throw new IllegalArgumentException();
+    public Product edit(Product newProduct){
+        String idProduct = newProduct.getProductId();
+        productData.set(productData.indexOf(findById(idProduct)), newProduct);
+        return newProduct;
+    }
+
+    public String delete(String idProduct){
+        productData.remove(findById(idProduct));
+        return idProduct;
     }
 }
