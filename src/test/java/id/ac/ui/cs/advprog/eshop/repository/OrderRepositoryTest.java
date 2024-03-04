@@ -1,17 +1,15 @@
 package id.ac.ui.cs.advprog.eshop.repository;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import id.ac.ui.cs.advprog.eshop.enums.OrderStatus;
-
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.*;
 import id.ac.ui.cs.advprog.eshop.model.Order;
 import id.ac.ui.cs.advprog.eshop.model.Product;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class OrderRepositoryTest {
     OrderRepository orderRepository;
@@ -76,14 +74,13 @@ class OrderRepositoryTest {
     void testFindByIdIfIdFound() {
         for (Order order : orders) {
             orderRepository.save(order);
-
-            Order findResult = orderRepository.findById(orders.get(1).getId());
-
-            assertEquals(orders.get(1).getId(), findResult.getId());
-            assertEquals(orders.get(1).getOrderTime(), findResult.getOrderTime());
-            assertEquals(orders.get(1).getAuthor(), findResult.getAuthor());
-            assertEquals(orders.get(1).getStatus(), findResult.getStatus());
         }
+
+        Order findResult = orderRepository.findById(orders.get(1).getId());
+        assertEquals(orders.get(1).getId(), findResult.getId());
+        assertEquals(orders.get(1).getOrderTime(), findResult.getOrderTime());
+        assertEquals(orders.get(1).getAuthor(), findResult.getAuthor());
+        assertEquals(orders.get(1).getStatus(), findResult.getStatus());
     }
     @Test
     void testFindByIdIfIdNotFound() {
@@ -109,7 +106,8 @@ class OrderRepositoryTest {
     void testFindAllByAuthorIfAllLowercase() {
         orderRepository.save(orders.get(1));
 
-        List<Order> orderList = orderRepository.findAllByAuthor(orders.get(1).getAuthor().toLowerCase());
+        List<Order> orderList = orderRepository.findAllByAuthor(
+                orders.get(1).getAuthor().toLowerCase());
         assertTrue(orderList.isEmpty());
     }
 
