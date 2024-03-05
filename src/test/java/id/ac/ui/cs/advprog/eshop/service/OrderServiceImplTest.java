@@ -94,7 +94,6 @@ class OrderServiceTest {
     @Test
     void testUpdateStatusInvalidOrderId(){
         doReturn(null).when(orderRepository).findById("zczc");
-
         assertThrows(NoSuchElementException.class,
                 ()->orderService.updateStatus("zczc", OrderStatus.SUCCESS.getValue()));
 
