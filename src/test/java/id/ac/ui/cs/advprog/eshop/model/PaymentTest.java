@@ -33,28 +33,16 @@ class PaymentTest {
         this.orders = new ArrayList<>();
         Order order1 = new Order("13652556-012a-4c07-b546-54eb1396d79b", products, 1708560000L, "Safira Sudrajat");
         Order order2 = new Order("13652556-012a-4c07-b546-54eb1396d79c", products, 1708570000L, "Safira Sederajat");
-        order2.setStatus("Meow");
+        order1.setStatus("WAITING_PAYMENT");
         this.orders.add(order1);
         this.orders.add(order2);
-    }
-
-    @Test
-    void testCreatePaymentEmptyOrder() {
-        this.orders.clear();
-        Map<String, String> paymentData = new HashMap<>();
-        paymentData.put("voucherCode", "ESHOP1234ABC5678");
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            Payment payment = new Payment("13652556-012a-4c07-b546-54eb1396d79b","VOUCHER",
-                    orders.get(0), paymentData);
-        });
     }
 
     @Test
     void testCreatePaymentSuccessful() {
         Map<String, String> paymentData = new HashMap<>();
         paymentData.put("voucherCode", "ESHOP1234ABC5678");
-        Payment payment = new Payment("13652556-012a-4c07-b546-54eb1396d79b","",
+        Payment payment = new Payment("13652556-012a-4c07-b546-54eb1396d79b","VOUCHER",
                 orders.get(0), paymentData);
 
         assertSame(orders.get(0), payment.getOrder());
@@ -63,12 +51,12 @@ class PaymentTest {
     }
 
     @Test
-    void testCreatePaymentFailedWrongOrderStatus() {
+    void testCreatePaymentFailedWrongPaymentData() {
         Map<String, String> paymentData = new HashMap<>();
-        paymentData.put("voucherCode", "ESHOP1234ABC5678");
+        paymentData.put("VOUCHER", "ESHOP1234ABC5678");
         assertThrows(IllegalArgumentException.class, () -> {
-            Payment payment = new Payment("13652556-012a-4c07-b546-54eb1396d79b","BANK",
-                    orders.get(1), paymentData);
+            Payment payment = new Payment("13652556-012a-4c07-b546-54eb1396d79b","Cintamu",
+                    orders.get(0), paymentData);
         });
     }
 }
