@@ -11,8 +11,6 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PaymentTest {
-
-    private List<Payment> payments;
     private List<Product> products;
     private List<Order> orders;
 
