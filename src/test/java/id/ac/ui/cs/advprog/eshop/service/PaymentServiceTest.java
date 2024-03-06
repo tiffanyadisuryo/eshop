@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class PaymentServiceTest {
     @InjectMocks
-    OrderServiceImpl paymentService;
+    PaymentServiceImpl paymentService;
 
     @Mock
     PaymentRepository paymentRepository;
@@ -93,7 +93,7 @@ public class PaymentServiceTest {
         doReturn(payment).when(paymentRepository).findById(payment.getId());
         doReturn(newPayment).when(paymentRepository).save(any(Payment.class));
 
-        Payment result = paymentService.setStatus(payment.getId(), PaymentStatus.SUCCESS.getValue());
+        Payment result = paymentService.setStatus(payment, PaymentStatus.SUCCESS.getValue());
 
         assertEquals(payment.getId(), result.getId());
         assertEquals(PaymentStatus.SUCCESS.getValue(), result.getStatus());
@@ -106,7 +106,7 @@ public class PaymentServiceTest {
         doReturn(payment).when(paymentRepository).findById(payment.getId());
 
         assertThrows(IllegalArgumentException.class,
-                ()->paymentService.setStatus(payment.getId(), "MEOW"));
+                ()->paymentService.setStatus(payment, "MEOW"));
 
         verify(paymentRepository, times(0)).save(any(Payment.class));
     }
@@ -115,7 +115,7 @@ public class PaymentServiceTest {
     void testSetStatusInvalidPaymentId(){
         doReturn(null).when(paymentRepository).findById("zczc");
         assertThrows(NoSuchElementException.class,
-                ()->paymentService.setStatus("zczc", PaymentStatus.SUCCESS.getValue()));
+                ()->paymentService.setStatus(paymentRepository.findById("zczc"), PaymentStatus.SUCCESS.getValue()));
 
         verify(paymentRepository, times(0)).save(any(Payment.class));
     }
@@ -129,7 +129,7 @@ public class PaymentServiceTest {
     @Test
     void testGetAllPayment(){
         doReturn(null).when(paymentRepository).findById("zczc");
-        assertNull(paymentService.getAllPayments("zczc"));
+        assertNull(paymentService.getAllPayments());
     }
 
 }
