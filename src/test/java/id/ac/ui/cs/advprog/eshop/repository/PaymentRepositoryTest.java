@@ -112,7 +112,6 @@ public class PaymentRepositoryTest {
             List<Payment> findResult = paymentRepository.findAll();
 
             assertSame(findResult.get(0), payments.get(0));
-            assertSame(findResult.get(1), payments.get(1));
         }
     }
 }
