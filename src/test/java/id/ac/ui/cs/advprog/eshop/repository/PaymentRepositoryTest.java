@@ -1,6 +1,5 @@
 package id.ac.ui.cs.advprog.eshop.repository;
 
-import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import id.ac.ui.cs.advprog.eshop.model.Order;
 import id.ac.ui.cs.advprog.eshop.model.Payment;
 import id.ac.ui.cs.advprog.eshop.model.Product;
@@ -102,6 +101,18 @@ public class PaymentRepositoryTest {
             Payment findResult = paymentRepository.findById("zczc");
 
             assertNull(findResult);
+        }
+    }
+
+    @Test
+    void testFindAll() {
+        for (Payment payment : payments) {
+            paymentRepository.save(payment);
+
+            List<Payment> findResult = paymentRepository.findAll();
+
+            assertSame(findResult.get(0), payments.get(0));
+            assertSame(findResult.get(1), payments.get(1));
         }
     }
 }
