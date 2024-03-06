@@ -53,3 +53,9 @@ Link Home page : https://eshop-tiffanyadisuryo.koyeb.app/
     - Kurang fleksibel karena perubahan suatu function dapat merubah program secara keseluruhan.
     - Lebih susah untuk testing dan mencari bug karena banyak kode digabungkan secara tidak terstruktur dan berantakan.
 
+# Tutorial 4
+
+## Reflection 1
+1) Menurut saya TDD ini dapat membantu membuat code lebih secure. Test dibuat lebih dahulu sangat memastikan bahwa saya paham code yang akan saya buat nantinya. Butuh waktu yang lama untuk benar-benar memikirkan segala sesuatunya. Namun, code dapat lebih dijamin minim bug dan sebagainya. Dengan itu, saya rasa saya butuh waktu pengerjaan yang jauh lebih lama. Untuk next time, saya harus memperbanyak test fail untuk memastikan code dan juga agar code coverage sampai 100.
+2) FIRST digunakan untuk software testing agar memastikan dia efektif. Fast, harus cepat dieksekusi agar mendapat feedback. Independent, test tidak boleh saling dependent. Repeatable, test harus bisa diulang di berbagai environment dan hasilnya konsisten. Self-validating, test harus memiliki output boolean. Menurut saya, saya belum terlalu banyak mengaplikasikan FIRST, terutama Self-validating, namun untuk sisanya saya lumayan bisa.
+
